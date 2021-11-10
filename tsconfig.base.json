@@ -6,7 +6,10 @@
       "@/store/*": ["store/*"],
       "@/utils/*": ["utils/*"],
       "@/images/*": ["images/*"],
-      "@/pages/*": ["pages/*"]
+      "@/pages/*": ["pages/*"],
+      "@/interface/*": ["interface/*"],
+      "@/data/*": ["data/*"],
+      "@/css/*": ["css/*"]
     }
   }
 }
