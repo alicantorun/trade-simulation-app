@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/trade-simulation-app/static/css/main.80fd62fe.chunk.css",
+    "main.js": "/trade-simulation-app/static/js/main.fcf9ff23.chunk.js",
+    "main.js.map": "/trade-simulation-app/static/js/main.fcf9ff23.chunk.js.map",
+    "runtime-main.js": "/trade-simulation-app/static/js/runtime-main.6c853f6b.js",
+    "runtime-main.js.map": "/trade-simulation-app/static/js/runtime-main.6c853f6b.js.map",
+    "static/js/2.0e46a5ac.chunk.js": "/trade-simulation-app/static/js/2.0e46a5ac.chunk.js",
+    "static/js/2.0e46a5ac.chunk.js.map": "/trade-simulation-app/static/js/2.0e46a5ac.chunk.js.map",
+    "static/js/3.e923a38e.chunk.js": "/trade-simulation-app/static/js/3.e923a38e.chunk.js",
+    "static/js/3.e923a38e.chunk.js.map": "/trade-simulation-app/static/js/3.e923a38e.chunk.js.map",
+    "index.html": "/trade-simulation-app/index.html",
+    "static/css/main.80fd62fe.chunk.css.map": "/trade-simulation-app/static/css/main.80fd62fe.chunk.css.map",
+    "static/js/2.0e46a5ac.chunk.js.LICENSE.txt": "/trade-simulation-app/static/js/2.0e46a5ac.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c853f6b.js",
+    "static/js/2.0e46a5ac.chunk.js",
+    "static/css/main.80fd62fe.chunk.css",
+    "static/js/main.fcf9ff23.chunk.js"
+  ]
+}
