@@ -7,6 +7,7 @@ import WelcomeBanner from "@/components/WelcomeBanner";
 import { IHitrateCalculator } from "@/interface/index";
 import Calculator from "@/components/Dashboard/Calculator";
 import SimulationPermanceGraph from "@/components/Dashboard/SimulationPermanceGraph";
+import SimulationDetailedTable from "@/components/Dashboard/SimulationDetailedTable";
 import { simulator } from "@/utils/Simulator";
 
 function Dashboard() {
@@ -14,11 +15,8 @@ function Dashboard() {
   const [simulatedData, setSimulatedData] = useState([]);
 
   const onClickSimulateHandler = (values: IHitrateCalculator) => {
-    // console.log(values);
     setSimulatedData(simulator(values as any) as any);
   };
-
-  console.log(simulatedData);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -45,18 +43,20 @@ function Dashboard() {
               {/* Hit rate calculator */}
               <Calculator onClickSimulate={onClickSimulateHandler} />
 
-              <SimulationPermanceGraph data={simulatedData.map((a) => a[1])} />
+              <SimulationPermanceGraph
+                title="Overall performance of simulation"
+                data={simulatedData.map((a) => a[1])}
+                isRealtimeChart={false}
+              />
 
               {/* Simulation graph 1 */}
-              <div className="flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-gray-200">
-                <header className="px-5 py-4 border-b border-gray-100 flex items-center">
-                  <h2 className="font-semibold text-gray-800">
-                    SIMMULATION PERFORMANCE GRAPH 1
-                  </h2>
-                </header>
-              </div>
+              <SimulationDetailedTable data={simulatedData} />
 
-              <SimulationPermanceGraph data={simulatedData.map((a) => a[5])} />
+              <SimulationPermanceGraph
+                title="Overall drawdown of simulation"
+                data={simulatedData.map((a) => a[5])}
+                isRealtimeChart={true}
+              />
             </div>
           </div>
         </main>
