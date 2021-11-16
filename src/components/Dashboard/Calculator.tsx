@@ -1,7 +1,13 @@
 import { useState } from "react";
 
 import { IHitrateCalculator } from "@/interface/index";
+import NumberFormat from "react-number-format";
 
+export interface NumberFormatValues {
+  floatValue: number | undefined;
+  formattedValue: string;
+  value: string;
+}
 interface Props {
   onClickSimulate(hitrateCalculator: IHitrateCalculator): void;
 }
@@ -27,18 +33,17 @@ const Calculator: React.FC<Props> = ({ onClickSimulate }) => {
           >
             Desired Profit Factor
           </label>
-          <input
-            onChange={(event) =>
+          <NumberFormat
+            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            suffix={"%"}
+            decimalScale={2}
+            value={(hitRateCalculator?.desiredProfitFactor as number) * 100}
+            onValueChange={(event: NumberFormatValues) => {
               setHitRateCalculator({
                 ...hitRateCalculator,
-                desiredProfitFactor: parseFloat(event.target.value),
-              })
-            }
-            type="number"
-            name="first-name"
-            id="first-name"
-            autoComplete="given-name"
-            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                desiredProfitFactor: (event.floatValue as number) / 100,
+              });
+            }}
           />
         </div>
         <div className="col-span-6 sm:col-span-3">
@@ -48,18 +53,17 @@ const Calculator: React.FC<Props> = ({ onClickSimulate }) => {
           >
             Hit-rate must exceed
           </label>
-          <input
-            onChange={(event) =>
+          <NumberFormat
+            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            suffix={"%"}
+            decimalScale={2}
+            value={(hitRateCalculator?.hitRateMustExceed as number) * 100}
+            onValueChange={(event: NumberFormatValues) => {
               setHitRateCalculator({
                 ...hitRateCalculator,
-                hitRateMustExceed: parseFloat(event.target.value),
-              })
-            }
-            type="number"
-            name="last-name"
-            id="last-name"
-            autoComplete="family-name"
-            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                hitRateMustExceed: (event.floatValue as number) / 100,
+              });
+            }}
           />
         </div>
       </div>
@@ -76,18 +80,17 @@ const Calculator: React.FC<Props> = ({ onClickSimulate }) => {
           >
             Profit factor in R
           </label>
-          <input
-            onChange={(event) =>
+          <NumberFormat
+            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            suffix={"%"}
+            decimalScale={2}
+            value={(hitRateCalculator?.profitFactorInR as number) * 100}
+            onValueChange={(event: NumberFormatValues) => {
               setHitRateCalculator({
                 ...hitRateCalculator,
-                profitFactorInR: parseFloat(event.target.value),
-              })
-            }
-            type="number"
-            name="first-name"
-            id="first-name"
-            autoComplete="given-name"
-            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                profitFactorInR: (event.floatValue as number) / 100,
+              });
+            }}
           />
         </div>
         <div className="col-span-6 sm:col-span-3">
@@ -97,18 +100,17 @@ const Calculator: React.FC<Props> = ({ onClickSimulate }) => {
           >
             Risk per trade
           </label>
-          <input
-            onChange={(event) =>
+          <NumberFormat
+            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            suffix={"%"}
+            decimalScale={2}
+            value={(hitRateCalculator?.riskPerTrade as number) * 100}
+            onValueChange={(event: NumberFormatValues) => {
               setHitRateCalculator({
                 ...hitRateCalculator,
-                riskPerTrade: parseFloat(event.target.value),
-              })
-            }
-            type="number"
-            name="last-name"
-            id="last-name"
-            autoComplete="family-name"
-            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                riskPerTrade: (event.floatValue as number) / 100,
+              });
+            }}
           />
         </div>
       </div>
@@ -128,9 +130,6 @@ const Calculator: React.FC<Props> = ({ onClickSimulate }) => {
               })
             }
             type="number"
-            name="first-name"
-            id="first-name"
-            autoComplete="given-name"
             className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
         </div>
@@ -141,18 +140,17 @@ const Calculator: React.FC<Props> = ({ onClickSimulate }) => {
           >
             Approximate HIT Rate
           </label>
-          <input
-            onChange={(event) =>
+          <NumberFormat
+            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            suffix={"%"}
+            decimalScale={2}
+            value={(hitRateCalculator?.approximateHitRate as number) * 100}
+            onValueChange={(event: NumberFormatValues) => {
               setHitRateCalculator({
                 ...hitRateCalculator,
-                approximateHitRate: parseFloat(event.target.value),
-              })
-            }
-            type="number"
-            name="last-name"
-            id="last-name"
-            autoComplete="family-name"
-            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                approximateHitRate: (event.floatValue as number) / 100,
+              });
+            }}
           />
         </div>
         <button

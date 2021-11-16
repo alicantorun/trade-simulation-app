@@ -43,19 +43,21 @@ function Dashboard() {
               {/* Hit rate calculator */}
               <Calculator onClickSimulate={onClickSimulateHandler} />
 
+              {/* Performance Graph */}
               <SimulationPermanceGraph
                 title="Overall performance of simulation"
                 data={simulatedData.map((a) => a[1])}
-                isRealtimeChart={false}
+                isRealtimeChart={true}
               />
 
               {/* Simulation graph 1 */}
               <SimulationDetailedTable data={simulatedData} />
 
+              {/* Drawdown Graph */}
               <SimulationPermanceGraph
                 title="Overall drawdown of simulation"
-                data={simulatedData.map((a) => a[5])}
-                isRealtimeChart={true}
+                data={simulatedData.map((a) => a[5] * 100)}
+                isRealtimeChart={false}
               />
             </div>
           </div>

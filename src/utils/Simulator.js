@@ -1,3 +1,5 @@
+import { toFixedNumber } from "./helpers";
+
 export const simulator = ({
   riskFactorRinPerDefinition = 1,
   startingEquity = 10000,
@@ -52,7 +54,15 @@ export const simulator = ({
       drawdown = equity / Math.max(startingEquity, equity);
 
       // newArr Order = [Risk/Trade, W/L, W/L in %, W/L Amount, Drawdown, Equity]
-      newArr = [i, riskTrade, wL, wLinPercentage, wLAmount, drawdown, equity];
+      newArr = [
+        i,
+        toFixedNumber(riskTrade),
+        wL,
+        toFixedNumber(wLinPercentage),
+        toFixedNumber(wLAmount),
+        toFixedNumber(drawdown),
+        equity,
+      ];
       arr.push(newArr);
     } else {
       // Following cycles where values are taken from the previous cycles
@@ -82,7 +92,17 @@ export const simulator = ({
       drawdown = equity / Math.max(...arr.map((y) => y[6]));
 
       // newArr Order = [Risk/Trade, W/L, W/L in %, W/L Amount, Drawdown, Equity]
-      newArr = [i, riskTrade, wL, wLinPercentage, wLAmount, drawdown, equity];
+      newArr = [
+        i,
+        toFixedNumber(riskTrade),
+        wL,
+        toFixedNumber(wLinPercentage),
+        toFixedNumber(wLAmount),
+        toFixedNumber(drawdown),
+        toFixedNumber(equity),
+      ];
+
+      console.log(equity.toFixed(2));
       arr.push(newArr);
     }
   }

@@ -102,7 +102,10 @@ function RealtimeChart({ data, width, height }) {
       <div className="px-5 py-3">
         <div className="flex items-start">
           <div className="text-3xl font-bold text-gray-800 mr-2 tabular-nums">
-            $<span ref={chartValue}>{data.datasets[0].data.at(-1)}</span>
+            $
+            <span ref={chartValue}>
+              {data?.datasets[0]?.data[data?.datasets[0]?.data.length - 1]}
+            </span>
           </div>
           <div
             ref={chartDeviation}
